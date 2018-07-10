@@ -4,4 +4,12 @@ from django.db import models
 
 class BakingSlot(models.Model):
     item = models.CharField(max_length=200)
-    date = models.DateField()
+    date = models.DateField(unique=True)
+
+
+    def __str__(self):
+        return 'BakingSlot: {}, {}'.format(self.date, self.item)
+
+
+    class Meta:
+        ordering = ['date']
