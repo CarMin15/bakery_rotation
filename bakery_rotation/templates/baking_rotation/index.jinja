@@ -1,0 +1,9 @@
+{% if baking_list %}
+  <ul>
+    {% for item in baking_list %}
+      <li><a href="{% url 'details' item.id %}">{{ item }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>There is no baking items :(</p>
+{% endif%}
