@@ -1,0 +1,30 @@
+
+{% load static %}
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'baking_rotation/style.css' %}" />
+</head>
+
+<body>
+  <header>
+    <div class="row m-4">
+      <h1 id=title class="text-success col-10">Baking Rotation</h1>
+      <button type="button" class="btn btn-info col-2">Sign in</button>
+    </div>
+
+  </header>
+  <div class="row m-4">
+    <div class="col-4">
+      <div>Upcoming</div>
+      <div>Votes</div>
+      <div>Yours</div>
+      <div>Create</div>
+    </div>
+    <div class="col-8">
+    {% block content %}{% endblock %}
+    </div>
+  </div>
+
+
+
+</body>

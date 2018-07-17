@@ -1,9 +1,15 @@
+{% extends "baking_rotation/base.jinja" %}
+
+{% block content %}
+
 {% if baking_list %}
   <ul>
     {% for item in baking_list %}
-      <li><a href="{% url 'details' item.id %}">{{ item }}</a></li>
+      <li><span>{{ date }}</span><a href="{% url 'details' item.id %}">{{ item }}</a></li>
     {% endfor %}
   </ul>
   {% else %}
   <p>There is no baking items :(</p>
 {% endif%}
+
+{% endblock %}
