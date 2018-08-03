@@ -3,7 +3,13 @@
 {% block content %}
 
 <div>
-  upcoming
+  <h3>Delicious Baked Good Coming Soon!</h3>
+  <span>
+    When: {{ item.date }}
+  </span>
+  <span>
+    What: <a href="/bakery_rotation/details/{{ item.id }}">{{ item.item }}</a>
+  </span>
 </div>
 
 {% endblock %}

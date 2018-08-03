@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 from .models import BakingSlot
 from django.shortcuts import render
@@ -25,7 +27,12 @@ def details(request, item_id):
 
 
 def upcoming(request):
-    context = {}
+    item = BakingSlot.objects.filter(
+        date__gt=datetime.datetime.today()
+    ).order_by('date').first()
+    context = {
+        'item': item,
+    }
     return render(request, 'baking_rotation/upcoming.jinja', context)
 
 
