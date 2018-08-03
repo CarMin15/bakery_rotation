@@ -22,3 +22,23 @@ def details(request, item_id):
     }
 
     return render(request, 'baking_rotation/details.jinja', context)
+
+
+def upcoming(request):
+    context = {}
+    return render(request, 'baking_rotation/upcoming.jinja', context)
+
+
+def votes(request):
+    context = {}
+    return render(request, 'baking_rotation/votes.jinja', context)
+
+
+def yours(request):
+    context = {}
+    return render(request, 'baking_rotation/yours.jinja', context)
+
+
+def create(request):
+    context = {}
+    return render(request, 'baking_rotation/create.jinja', context)
