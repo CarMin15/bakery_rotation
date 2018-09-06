@@ -122,3 +122,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = '/tmp/bakery_rotation/'
 MEDIA_URL = '/'
+LOGIN_REDIRECT_URL = '/bakery_rotation/'
