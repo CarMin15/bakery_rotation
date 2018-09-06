@@ -5,7 +5,7 @@ from django.db import models
 class BakingSlot(models.Model):
     item = models.CharField(max_length=200)
     date = models.DateField(unique=True)
-    # img = models.ImageField()
+    img = models.ImageField(upload_to="uploads/%Y/%m/%d/")
 
 
     def __str__(self):

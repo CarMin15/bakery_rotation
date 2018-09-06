@@ -28,7 +28,7 @@ def details(request, item_id):
 
 def upcoming(request):
     item = BakingSlot.objects.filter(
-        date__gt=datetime.datetime.today()
+        date__lt=datetime.datetime.today()
     ).order_by('date').first()
     context = {
         'item': item,
