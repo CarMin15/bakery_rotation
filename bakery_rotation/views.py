@@ -51,5 +51,14 @@ def yours(request):
 
 @login_required
 def create(request):
-    context = {}
+    if request.method == 'POST':
+        print(request.POST)
+        print(dir(request.POST))
+        print(list(request.POST.items()))
+        # BakingSlot.objects.create(
+        #
+        # )
+        context = {}
+    else:
+        context = {}
     return render(request, 'baking_rotation/create.jinja', context)

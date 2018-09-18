@@ -3,7 +3,16 @@
 {% block content %}
 
 <div>
-  create
+  <form action='{% url 'create' %}' method='POST'>
+    {% csrf_token %}
+    <label for='item-name'>Watcha makin'</label>
+    <input id='item-name' type='text'></input>
+
+    <label for='slot-date'>When ya makin' it</label>
+    <input id='slot-date' type='date' value='date'></input>
+
+    <input type="submit" value='OK'>Upload</input>
+  </form>
 </div>
 
 {% endblock %}
