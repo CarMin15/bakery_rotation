@@ -1,6 +1,6 @@
 import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BakingSlot
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -45,7 +45,11 @@ def votes(request):
 
 @login_required
 def yours(request):
-    context = {}
+    context = {
+        'user_baking_slots': BakingSlot.objects.filter(
+            baker=request.user,
+        )
+    }
     return render(request, 'baking_rotation/yours.jinja', context)
 
 
@@ -59,7 +63,7 @@ def create(request):
             img='blah',
             baker=request.user,
         )
-        context = {}
+        return redirect('yours')
     else:
         context = {}
     return render(request, 'baking_rotation/create.jinja', context)
