@@ -2,6 +2,7 @@ import datetime
 
 from django.shortcuts import render, redirect
 from .models import BakingSlot
+from .forms import BakingSlotForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
@@ -29,7 +30,7 @@ def details(request, item_id):
 @login_required
 def upcoming(request):
     item = BakingSlot.objects.filter(
-        date__lt=datetime.datetime.today()
+        date__gt=datetime.datetime.today()
     ).order_by('date').first()
     context = {
         'item': item,
@@ -56,14 +57,19 @@ def yours(request):
 @login_required
 def create(request):
     if request.method == 'POST':
-        data = request.POST
-        BakingSlot.objects.create(
-            item=data['item_name'],
-            date=data['item_date'],
-            img='blah',
-            baker=request.user,
-        )
-        return redirect('yours')
+        data = {
+            'item': request.POST['item'],
+            'date': request.POST['date'],
+            'baker': request.user,
+        }
+        form = BakingSlotForm(data)
+        if form.is_valid():
+            form.save()
+            return redirect('yours')
+        else:
+            print(form.errors)
+            return HttpResponse(form.errors)
+
     else:
         context = {}
     return render(request, 'baking_rotation/create.jinja', context)
