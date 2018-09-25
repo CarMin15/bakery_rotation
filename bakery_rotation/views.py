@@ -52,12 +52,13 @@ def yours(request):
 @login_required
 def create(request):
     if request.method == 'POST':
-        print(request.POST)
-        print(dir(request.POST))
-        print(list(request.POST.items()))
-        # BakingSlot.objects.create(
-        #
-        # )
+        data = request.POST
+        BakingSlot.objects.create(
+            item=data['item_name'],
+            date=data['item_date'],
+            img='blah',
+            baker=request.user,
+        )
         context = {}
     else:
         context = {}

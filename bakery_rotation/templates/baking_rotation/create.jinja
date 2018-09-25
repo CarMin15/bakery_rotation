@@ -6,10 +6,10 @@
   <form action='{% url 'create' %}' method='POST'>
     {% csrf_token %}
     <label for='item-name'>Watcha makin'</label>
-    <input id='item-name' type='text'></input>
+    <input id='item-name' name='item_name' type='text'>
 
     <label for='slot-date'>When ya makin' it</label>
-    <input id='slot-date' type='date' value='date'></input>
+    <input id='slot-date' name='item_date' type='date'>
 
     <input type="submit" value='OK'>Upload</input>
   </form>
