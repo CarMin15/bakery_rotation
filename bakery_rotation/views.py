@@ -56,6 +56,10 @@ def yours(request):
 
 @login_required
 def create(request):
+    context = {
+        'errors': {}
+    }
+
     if request.method == 'POST':
         data = {
             'item': request.POST['item'],
@@ -65,9 +69,9 @@ def create(request):
         form = BakingSlotForm(data)
 
         if form.is_valid():
+            form.save()
             return redirect('yours')
         else:
-            return HttpResponse(form.errors)
-    else:
-        context = {}
+            context['errors'] = form.errors
+
     return render(request, 'baking_rotation/create.jinja', context)

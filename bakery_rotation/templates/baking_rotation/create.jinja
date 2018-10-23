@@ -5,13 +5,28 @@
 <div>
   <form action='{% url 'create' %}' method='POST'>
     {% csrf_token %}
-    <label for='item-name'>Watcha makin'</label>
-    <input id='item-name' name='item' type='text'>
+    <div class="form-group row border rounded py-4">
+      <div class="col-sm-4">
+        <label for='item-name'>Watcha makin'</label>
+        <input id='item-name' name='item' type='text' class="form-control ">
+      </div>
+      <div class="col-sm-4">
+        <label for='slot-date'>When ya makin' it</label>
+        <input
+          id='slot-date'
+          name='date'
+          type='date'
+          class="form-control {% if errors %} is-invalid {% else %} is-valid {% endif %}"
+        >
+        {% if errors %}
+          <div class="invalid-feedback">something is wrong</div>
+        {% endif %}
+      </div>
+      <div class="col-sm-4">
+        <button type="submit" value='OK' class="btn btn-primary">Upload</button>
+      </div>
+    </div>
 
-    <label for='slot-date'>When ya makin' it</label>
-    <input id='slot-date' name='date' type='date'>
-
-    <input type="submit" value='OK'>Upload</input>
   </form>
 </div>
 
