@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class BakingSlot(models.Model):
     item = models.CharField(max_length=200)
     date = models.DateField(unique=True)
-    img = models.ImageField(upload_to="uploads/%Y/%m/%d/")
     baker = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='slots'
     )

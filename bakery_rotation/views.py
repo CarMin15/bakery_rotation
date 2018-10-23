@@ -60,16 +60,14 @@ def create(request):
         data = {
             'item': request.POST['item'],
             'date': request.POST['date'],
-            'baker': request.user,
+            'baker': request.user.id,
         }
         form = BakingSlotForm(data)
+
         if form.is_valid():
-            form.save()
             return redirect('yours')
         else:
-            print(form.errors)
             return HttpResponse(form.errors)
-
     else:
         context = {}
     return render(request, 'baking_rotation/create.jinja', context)
