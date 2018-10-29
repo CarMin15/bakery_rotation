@@ -3,32 +3,32 @@
 {% block content %}
 
 <div class="row">
-  <div class="mx-auto p-4 border rounded">
+  <div class="text-center mx-auto p-4 border rounded bg-light">
     {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+    <p class="text-danger">Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <h4 class="mb-3">Please login to see this page.</h4>
+    <h4 class="my-3">Please login to see this page.</h4>
 
     <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table class="my-3">
-      <tr class="pr-1">
-          <td>{{ form.username.label_tag }}</td>
-          <td>{{ form.username }}</td>
-      </tr>
-      <tr class="pr-1">
-          <td>{{ form.password.label_tag }}</td>
-          <td>{{ form.password }}</td>
-      </tr>
-    </table>
+      {% csrf_token %}
+      <table class="mx-auto my-4">
+        <tr>
+            <td class="pr-2">{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td class="pr-2">{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+      </table>
 
-    <div class="mx-auto">
-      <button class="btn btn-info" type="submit" value="login">
-        Submit
-      </button>
-      <input type="hidden" name="next" value="{{ next }}">
-    </div>
+      <div>
+        <button class="btn btn-info" type="submit" value="login">
+          Submit
+        </button>
+        <input type="hidden" name="next" value="{{ next }}">
+      </div>
 
     </form>
 
