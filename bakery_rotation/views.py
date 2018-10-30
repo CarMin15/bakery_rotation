@@ -73,5 +73,6 @@ def create(request):
             return redirect('yours')
         else:
             context['errors'] = form.errors
+            context['item'] = request.POST['item']
 
     return render(request, 'baking_rotation/create.jinja', context)
