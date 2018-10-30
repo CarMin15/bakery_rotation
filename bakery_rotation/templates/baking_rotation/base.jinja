@@ -5,21 +5,24 @@
 </head>
 <body>
   <header>
-    <div class="row m-4">
-      <h1 id=title class="col-10"><a class="text-success" href="/bakery_rotation/">Baking Rotation</a></h1>
-      <a href="{% url 'logout' %}"><button type="button" class="btn btn-info">Sign Out</button></a>
+    <div class="container">
+      <div class="row m-4">
+        <h1 id=title class="col-10"><a class="text-success" href="/bakery_rotation/">Baking Rotation</a></h1>
+        <a href="{% url 'logout' %}"><button type="button" class="btn btn-info">Sign Out</button></a>
+      </div>
     </div>
-
   </header>
-  <div class="row m-4">
-    <ul class="col-4">
-      <li><a href="/bakery_rotation/upcoming">Upcoming</a></li>
-      <li><a href="/bakery_rotation/votes">Votes</a></li>
-      <li><a href="/bakery_rotation/yours">Yours</a></li>
-      <li><a href="/bakery_rotation/create">Create</a></li>
-    </ul>
-    <div class="col-8">
-    {% block content %}{% endblock %}
+  <div class="container">
+    <div class="row m-4">
+      <ul class="col-4 item-list">
+        <li><a href="/bakery_rotation/upcoming">Upcoming</a></li>
+        <li><a href="/bakery_rotation/votes">Votes</a></li>
+        <li><a href="/bakery_rotation/yours">Yours</a></li>
+        <li><a href="/bakery_rotation/create">Create</a></li>
+      </ul>
+      <div class="col-8">
+      {% block content %}{% endblock %}
+      </div>
     </div>
   </div>
 </body>
