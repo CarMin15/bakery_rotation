@@ -1,22 +1,15 @@
 {% extends "baking_rotation/base.jinja" %}
-{% load static %}
 
 {% block content %}
 
-<div>
-  <h3>Delicious Baked Good Coming Soon!</h3>
-  <span>
-    When: {{ item.date }}
-  </span>
-  <span>
-    What: <a href="/bakery_rotation/details/{{ item.id }}">{{ item.item }}</a>
-  </span>
-  <div>
-    <!-- <img src="{{ item.img }}"/> -->
-    <img src="{% static 'baking_rotation/images/cheesecake.jpg' %}"/>
-    <span>{{ item.img }}</span>
-    <span>{{ item.img.url }}</span>
-  </div>
-</div>
+{% if baking_list %}
+  <ul>
+    {% for item in baking_list %}
+      <li><span>{{ date }}</span><a href="{% url 'details' item.id %}">{{ item }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>There is no baking items :(</p>
+{% endif%}
 
 {% endblock %}

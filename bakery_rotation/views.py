@@ -9,9 +9,20 @@ from django.http import HttpResponse
 
 @login_required
 def index(request):
-    baking_list = BakingSlot.objects.order_by('-date')
+    items = BakingSlot.objects.filter(
+        date__lt=datetime.datetime.today()
+    ).order_by('-date')
+
+    upcoming = BakingSlot.objects.filter(
+        date__gt=datetime.datetime.today()
+    ).order_by('date').first()
+
+    for item in items:
+        item.pic = 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2008/3/25/0/latin_churros.jpg.rend.hgtvcom.826.620.suffix/1383061070644.jpeg'
+
     context = {
-        'baking_list': baking_list
+        'items': items,
+        'upcoming': upcoming,
     }
 
     return render(request, 'baking_rotation/index.jinja', context)
@@ -29,12 +40,11 @@ def details(request, item_id):
 
 @login_required
 def upcoming(request):
-    item = BakingSlot.objects.filter(
-        date__gt=datetime.datetime.today()
-    ).order_by('date').first()
+    baking_list = BakingSlot.objects.order_by('-date')
     context = {
-        'item': item,
+        'baking_list': baking_list
     }
+
     return render(request, 'baking_rotation/upcoming.jinja', context)
 
 

@@ -1,15 +1,36 @@
 {% extends "baking_rotation/base.jinja" %}
+{% load static %}
 
 {% block content %}
 
-{% if baking_list %}
-  <ul>
-    {% for item in baking_list %}
-      <li><span>{{ date }}</span><a href="{% url 'details' item.id %}">{{ item }}</a></li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>There is no baking items :(</p>
-{% endif%}
+<div>
+  <h3 class="text-center">Delicious Baked Good You Already Had!</h3>
+  <div>
+    <div class="container">
+      <div class="row">
+        {% for item in items %}
+          <div class="col-3 py-3">
+            <img src="{{item.pic}}"/ class="img-thumbnail">
+          </div>
+        {% endfor %}
+      </div>
+      <div class="row my-3 p-3">
+        <div class="col-12 border rounded py-3">
+          <p>
+            And look what's next:
+          </p>
+          <ul class="item-list">
+            <li>
+              When: {{ upcoming.date }}
+            </li>
+            <li>
+              What: <a href="/bakery_rotation/details/{{ upcoming.id }}">{{ upcoming.item }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
