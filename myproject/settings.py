@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = '/tmp/bakery_rotation/'
-MEDIA_URL = '/'
+MEDIA_ROOT = '/var/www/bakery_rotation.com/media/'
+# MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/bakery_rotation/'
 LOGOUT_REDIRECT_URL = '/accounts/login'

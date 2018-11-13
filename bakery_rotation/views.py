@@ -79,9 +79,11 @@ def create(request):
         form = BakingSlotForm(data)
 
         if form.is_valid():
+            print('is valid?')
             form.save()
             return redirect('yours')
         else:
+            print(form.errors)
             context['errors'] = form.errors
             context['item'] = request.POST['item']
 
