@@ -7,10 +7,23 @@
   <ul class='item-list'>
   {% for baking_slot in user_baking_slots %}
     <li>
-      <span>
-         On {{ baking_slot.date }} you are making: {{ baking_slot.item }} !!
-      </span>
-      <span>Thanks {{ baking_slot.baker }}!! :)</span>
+      <form method='post' enctype='multipart/form-data'>
+        {% csrf_token %}
+        <div>
+          <span>
+             On {{ baking_slot.date }} you are making: {{ baking_slot.item }} !!
+          </span>
+          <span>Thanks {{ baking_slot.baker }}!! :)</span>
+        </div>
+        <div>
+          <span>Choose an image to show your baked good:</span>
+          <label for='image' class=' btn btn-light border mb-0'>
+            Add
+            <input type='file' id='image' name='image' accept='image/*' style='display:none;'/>
+          </label>
+          <button type='submit' value='OK' class='btn btn-info'>Submit</button>
+        </div>
+      </form>
     </li>
   {% endfor %}
   </ul>
