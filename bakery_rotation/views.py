@@ -61,6 +61,28 @@ def yours(request):
             baker=request.user,
         )
     }
+
+    if request.method == 'POST':
+        print(request.POST)
+        print(request.FILES)
+        pk = request.POST['pk']
+        instance = BakingSlot.objects.get(pk=pk)
+        print(instance)
+        instance.image = request.FILES['image']
+        instance.save()
+        # data = {
+        #     'item': request.POST['item'],
+        #     'date': request.POST['date'],
+        #     'baker': request.user.id,
+        # }
+        # form = BakingSlotForm(data)
+
+        # if form.is_valid():
+        #     form.save()
+        #     return redirect('yours')
+        # else:
+        #     context['errors'] = form.errors
+        #     context['item'] = request.POST['item']
     return render(request, 'baking_rotation/yours.jinja', context)
 
 
@@ -79,11 +101,9 @@ def create(request):
         form = BakingSlotForm(data)
 
         if form.is_valid():
-            print('is valid?')
             form.save()
             return redirect('yours')
         else:
-            print(form.errors)
             context['errors'] = form.errors
             context['item'] = request.POST['item']
 

@@ -15,13 +15,15 @@
           </span>
           <span>Thanks {{ baking_slot.baker }}!! :)</span>
         </div>
-        <div>
+        <div class="py-1">
           <span>Choose an image to show your baked good:</span>
-          <label for='image' class=' btn btn-light border mb-0'>
-            Add
-            <input type='file' id='image' name='image' accept='image/*' style='display:none;'/>
+          <label for="image" class="file-upload">
+            <input type="file" id="image" name="image" accept="image/*" />
           </label>
-          <button type='submit' value='OK' class='btn btn-info'>Submit</button>
+        </div>
+        <input name="pk" value="{{ baking_slot.pk }}" type="hidden"/>
+        <div class="py-1 text-center">
+          <button type="submit" value="OK" class="btn btn-info ml-1">Submit</button>
         </div>
       </form>
     </li>
