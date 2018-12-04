@@ -17,9 +17,6 @@ def index(request):
         date__gt=datetime.datetime.today()
     ).order_by('date').first()
 
-    for item in items:
-        item.pic = 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2008/3/25/0/latin_churros.jpg.rend.hgtvcom.826.620.suffix/1383061070644.jpeg'
-
     context = {
         'items': items,
         'upcoming': upcoming,
@@ -67,6 +64,7 @@ def yours(request):
             baker=request.user,
         )
     }
+
     return render(request, 'baking_rotation/yours.jinja', context)
 
 
