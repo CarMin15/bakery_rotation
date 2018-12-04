@@ -56,33 +56,17 @@ def votes(request):
 
 @login_required
 def yours(request):
+    if request.method == 'POST':
+        pk = request.POST['pk']
+        instance = BakingSlot.objects.get(pk=pk)
+        instance.image = request.FILES['image']
+        instance.save()
+
     context = {
         'user_baking_slots': BakingSlot.objects.filter(
             baker=request.user,
         )
     }
-
-    if request.method == 'POST':
-        print(request.POST)
-        print(request.FILES)
-        pk = request.POST['pk']
-        instance = BakingSlot.objects.get(pk=pk)
-        print(instance)
-        instance.image = request.FILES['image']
-        instance.save()
-        # data = {
-        #     'item': request.POST['item'],
-        #     'date': request.POST['date'],
-        #     'baker': request.user.id,
-        # }
-        # form = BakingSlotForm(data)
-
-        # if form.is_valid():
-        #     form.save()
-        #     return redirect('yours')
-        # else:
-        #     context['errors'] = form.errors
-        #     context['item'] = request.POST['item']
     return render(request, 'baking_rotation/yours.jinja', context)
 
 
