@@ -22,12 +22,12 @@
           </ul>
         </div>
       </div>
-      <div class="row justify-content-around">
+      <div class="row justify-content-between">
         {% for item in items %}
           {% if item.image %}
             <div class="col-3 py-3 border my-2 mx-1 px-0 text-center">
               <img src="{{ item.image.url }}" class="img-thumbnail">
-              <div class="pt-2"><span>{{ upcoming.item }}</span></div>
+              <div class="pt-2"><span>{{ item.item }}</span></div>
             </div>
 
           {% endif %}
