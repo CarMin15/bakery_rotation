@@ -40,8 +40,30 @@ def upcoming(request):
     baking_list = BakingSlot.objects.filter(
         date__gt=datetime.datetime.today()
     ).order_by('date')
+
+    today = datetime.datetime.today()
+    this_year = today.year
+    this_week = today.isocalendar()[1]
+    this_week_items = []
+    next_week_items = []
+    later_items = []
+    for b in baking_list:
+        year = b.date.year
+        week = b.date.isocalendar()[1]
+        if year == this_year and week == this_week:
+            this_week_items.append(b)
+        elif (
+            (year == this_year and week == this_week + 1) or
+            (year == this_year + 1 and week + 52 == this_week + 1)
+        ):
+            next_week_items.append(b)
+        else:
+            later_items.append(b)
+
     context = {
-        'baking_list': baking_list
+        'next_week_items': next_week_items,
+        'this_week_items': this_week_items,
+        'later_items': later_items,
     }
 
     return render(request, 'baking_rotation/upcoming.jinja', context)
