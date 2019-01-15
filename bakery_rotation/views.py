@@ -37,7 +37,9 @@ def details(request, item_id):
 
 @login_required
 def upcoming(request):
-    baking_list = BakingSlot.objects.order_by('-date')
+    baking_list = BakingSlot.objects.filter(
+        date__gt=datetime.datetime.today()
+    ).order_by('date')
     context = {
         'baking_list': baking_list
     }
@@ -62,7 +64,7 @@ def yours(request):
     context = {
         'user_baking_slots': BakingSlot.objects.filter(
             baker=request.user,
-        )
+        ).order_by('-date')
     }
 
     return render(request, 'baking_rotation/yours.jinja', context)
