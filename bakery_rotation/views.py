@@ -61,6 +61,7 @@ def upcoming(request):
             later_items.append(b)
 
     context = {
+        'baking_list': baking_list,
         'next_week_items': next_week_items,
         'this_week_items': this_week_items,
         'later_items': later_items,

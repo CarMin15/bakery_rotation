@@ -3,11 +3,44 @@
 {% block content %}
 
 {% if baking_list %}
-  <ul>
-    {% for item in baking_list %}
-      <li><span>{{ date }}</span><a href="{% url 'details' item.id %}">{{ item }}</a></li>
-    {% endfor %}
-  </ul>
+  <div>
+    <div>
+      <span>List of items</span>
+      <ul>
+        {% for item in baking_list %}
+          <li>
+            <span>{{ date }}</span>
+            <a href="{% url 'details' item.id %}">{{ item }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <span>This week</span>
+      <ul>
+        {% for item in this_week_items %}
+          <li>
+            <span>{{ date }}</span>
+            <a href="{% url 'details' item.id %}">{{ item }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <span>Next week</span>
+      <ul>
+        {% for item in next_week_items %}
+          <li>
+            <span>{{ date }}</span>
+            <a href="{% url 'details' item.id %}">{{ item }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
   {% else %}
   <p>There is no baking items :(</p>
 {% endif%}
