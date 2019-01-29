@@ -1,4 +1,6 @@
 {% load static %}
+<!DOCTYPE html>
+
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'baking_rotation/style.css' %}" />
@@ -6,23 +8,21 @@
 <body>
   <header>
     <div class="container">
-      <div class="row m-4">
-        <h1 id=title class="col-10"><a class="text-success" href="/bakery_rotation/">Baking Rotation</a></h1>
-        <a href="{% url 'logout' %}"><button type="button" class="btn btn-info">Sign Out</button></a>
+      <div class="row my-4">
+        <div class="col-8">
+          <h1 id=title class=""><a class="text-success" href="/bakery_rotation/">Baking Rotation</a></h1>
+        </div>
+        <div class="header-menu col-4">
+          <ul class="item-list">
+            <li><a href="/bakery_rotation/upcoming">Upcoming</a></li>
+            <!-- <li><a href="/bakery_rotation/votes">Votes</a></li> -->
+            <li><a href="/bakery_rotation/yours">Yours</a></li>
+            <li><a href="/bakery_rotation/create">Create</a></li>
+            <li><a href="{% url 'logout' %}"><button type="button" class="btn btn-info">Sign Out</button></a></li>
+          </ul>
+        </div>
       </div>
+      {% block content %}{% endblock %}
     </div>
   </header>
-  <div class="container">
-    <div class="row m-4">
-      <ul class="col-3 item-list">
-        <li><a href="/bakery_rotation/upcoming">Upcoming</a></li>
-        <!-- <li><a href="/bakery_rotation/votes">Votes</a></li> -->
-        <li><a href="/bakery_rotation/yours">Yours</a></li>
-        <li><a href="/bakery_rotation/create">Create</a></li>
-      </ul>
-      <div class="col-9">
-      {% block content %}{% endblock %}
-      </div>
-    </div>
-  </div>
 </body>

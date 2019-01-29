@@ -2,39 +2,34 @@
 {% load static %}
 
 {% block content %}
+  <div class="row my-3">
 
-<div>
-  <h3 class="text-center">Delicious Baked Good You Already Had!</h3>
-  <div>
-    <div class="container">
-      <div class="row my-3 p-3">
-        <div class="col-12 border rounded py-3">
-          <p>
-            And look what's next:
-          </p>
-          <ul class="item-list">
-            <li>
-              When: {{ upcoming.date }}
-            </li>
-            <li>
-              What: <a href="/bakery_rotation/details/{{ upcoming.id }}">{{ upcoming.item }}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="row justify-content-between">
-        {% for item in items %}
-          {% if item.image %}
-            <div class="col-3 py-3 border my-2 mx-1 px-0 text-center">
-              <img src="{{ item.image.url }}" class="img-thumbnail">
-              <div class="pt-2"><span>{{ item.item }}</span></div>
-            </div>
-
-          {% endif %}
-        {% endfor %}
-      </div>
+    <div class="col-12">
+      <h3 class="text-center">Delicious Baked Good You Already Had!</h3>
+      <div class="border rounded py-3">
+        <p>
+          And look what's next:
+        </p>
+        <ul class="item-list">
+          <li>
+            When: {{ upcoming.date }}
+          </li>
+          <li>
+            What: <a href="/bakery_rotation/details/{{ upcoming.id }}">{{ upcoming.item }}</a>
+          </li>
+        </ul>
+      </div>    
     </div>
   </div>
-</div>
+  <div class="row">
+    {% for item in items %}
+      {% if item.image %}
+        <div class="col-3 border my-2 mx-1 px-0 text-center">
+          <img src="{{ item.image.url }}" class="img-thumbnail">
+          <div class="pt-2"><span>{{ item.item }}</span></div>
+        </div>
 
+      {% endif %}
+    {% endfor %}
+  </div>
 {% endblock %}
