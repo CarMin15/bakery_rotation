@@ -1,6 +1,12 @@
-<div>
-  <span>Get ready for this!</span>
-  <div>{{ item.item }}</div>
-  <div>{{ item.date}}</div>
+{% extends "baking_rotation/base.jinja" %}
+
+{% block content %}
+
+<div class="row">
+  <h3>{{ item.item }}</h3>
+  <div>{{ item.date }}</div>
+  <div>{{ item.baker }}</div>
   <div>{{ item.img }}</div>
 </div>
+
+{% endblock %}

@@ -5,17 +5,9 @@
   <div class="row my-3">
     <div class="col-12">
       <div class="border-bottom pl-3 pb-3">
-        <p>
-          And look what's next:
-        </p>
-        <ul class="item-list">
-          <li>
-            When: {{ upcoming.date }}
-          </li>
-          <li>
-            What: <a href="/bakery_rotation/details/{{ upcoming.id }}">{{ upcoming.item }}</a>
-          </li>
-        </ul>
+        <span>
+          Up next, {{ upcoming.baker }} is making {{ upcoming.item }}!
+        </span>
       </div>
     </div>
   </div>
@@ -26,17 +18,19 @@
       {% for item in items %}
         {% if item.image %}
           <div class="col-3 my-2">
-            <div class="grid-item border">
-              <img src="{{ item.image.url }}" class="img-item">
-              <div class="p-2">
-                <div class="text-center font-weight-light font-italic">
-                  <span>{{ item.item }}</span>
-                </div>
-                <div class="text-right pt-1">
-                  <span class="baker-name">{{ item.baker }}</span>
+            <a href="/bakery_rotation/details/{{ item.id }}">
+              <div class="grid-item border">
+                <img src="{{ item.image.url }}" class="img-item">
+                <div class="p-2 grid-item-description">
+                  <div class="text-center font-weight-light font-italic">
+                    <span>{{ item.item }}</span>
+                  </div>
+                  <div class="text-right pt-1">
+                    <span class="baker-name">{{ item.baker }}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         {% endif %}
       {% endfor %}
