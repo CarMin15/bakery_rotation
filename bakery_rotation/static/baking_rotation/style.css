@@ -1,3 +1,19 @@
+body {
+  background-color: #faf6f0;
+}
+
+.navigationBar {
+  background-color: white;
+}
+
+.title {
+  color: black;
+}
+
+.toast_img {
+  height: 35px;
+}
+
 ul.item-list {
   list-style-type: none;
 }
@@ -14,6 +30,19 @@ ul.item-list {
 .header-menu {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.menu-links > a  {
+  color: #818181 !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.menu-button {
+  color: #84909d;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
 }
 
 .header-menu>.item-list {
