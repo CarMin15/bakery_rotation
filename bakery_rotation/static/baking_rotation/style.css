@@ -4,14 +4,24 @@ body {
 
 .navigationBar {
   background-color: white;
+  box-shadow: 0px 0px 3px 0px #dbd5cf;
+  border-bottom: 1px solid #dbd5cf;
 }
 
 .title {
   color: black;
 }
 
+.title:hover {
+  color: #f19a38 !important;
+}
+
 .toast_img {
   height: 35px;
+}
+
+.subtitle {
+  color: #818181;
 }
 
 ul.item-list {
@@ -40,28 +50,56 @@ ul.item-list {
 }
 
 .menu-button {
+  border: 1px solid #cdd8dd;
   color: #84909d;
   font-size: 0.7rem;
   letter-spacing: 1px;
+  padding: 8px 18px;
 }
 
-.header-menu>.item-list {
+.header-menu > .item-list {
   margin-bottom: 0px;
 }
 
-.header-menu>.item-list>li {
+.header-menu > .item-list > li {
   display: inline-block;
   padding-right: 5px;
   padding-left: 5px;
 }
 
+.header-menu > .item-list > li >a:hover {
+  color: #f19a38 !important;
+}
+
 .grid-item {
-  height: 100%;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+.grid-item-description {
+  border-top: 1px solid #d0d3d8;
+  padding: 1rem 1.5rem;
+}
+
+.grid-item-date {
+  color: #818181;
+  font-size: 0.8rem;
+}
+
+.grid-item-title {
+  color: #474747;
+  font-weight: 500;
+}
+
+.grid-item-title > span:hover {
+  color: #f19a38;
 }
 
 .grid-item > .img-item {
   max-width: 100%;
   height: auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .baker-name {
