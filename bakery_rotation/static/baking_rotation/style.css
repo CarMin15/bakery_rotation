@@ -76,6 +76,14 @@ ul.item-list {
   border-radius: 5px;
 }
 
+.grid-item:hover .grid-item-title {
+  color: #f19a38;
+}
+
+.grid-item-box:hover {
+  text-decoration: none;
+}
+
 .grid-item-description {
   border-top: 1px solid #d0d3d8;
   padding: 1rem 1.5rem;

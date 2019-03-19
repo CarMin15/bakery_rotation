@@ -18,7 +18,7 @@
       {% for item in items %}
         {% if item.image %}
           <div class="col-3 my-2">
-            <a href="/bakery_rotation/details/{{ item.id }}">
+            <a class="grid-item-box" href="/bakery_rotation/details/{{ item.id }}">
               <div class="grid-item">
                 <img src="{{ item.image.url }}" class="img-item">
                 <div class="grid-item-description">
