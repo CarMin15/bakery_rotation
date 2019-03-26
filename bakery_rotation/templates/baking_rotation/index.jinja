@@ -2,14 +2,20 @@
 {% load static %}
 
 {% block content %}
-  <div class="row my-3">
-    <div class="col-12">
-      <div class="pl-3 pb-3">
-        <span>
-          Up next, {{ upcoming.baker }} is making {{ upcoming.item }}!
-        </span>
-      </div>
+
+  <div class="row my-3 border upcoming-items">
+    <div class="col-3 upcoming-items_title">
+      <img src="{% static 'baking_rotation/images/platterguy.png' %}" class="platter_img" />
+      <span>some text</span>
     </div>
+    <div class="col-1 py-3 line-separator"></div>
+    <div class="col-2">
+    some text
+    </div>
+    <div class="col-1 line-separator"></div>
+    <div class="col-2">some text</div>
+    <div class="col-1 line-separator"></div>
+    <div class="col-2">some text</div>
   </div>
   <div class="row">
     <div class="col-12">
