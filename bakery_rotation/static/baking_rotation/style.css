@@ -77,7 +77,6 @@ ul.item-list {
 }
 
 .grid-item {
-  background-color: #FFF;
   border-radius: 5px;
 }
 
@@ -90,6 +89,7 @@ ul.item-list {
 }
 
 .grid-item-description {
+  background-color: #FFF;
   border-top: 1px solid #d0d3d8;
   padding: 1rem 1.5rem;
 }
@@ -109,10 +109,12 @@ ul.item-list {
 }
 
 .grid-item > .img-item {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 200px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .baker-name {
