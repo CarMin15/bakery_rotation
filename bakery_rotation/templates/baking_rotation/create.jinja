@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<div>
+<div class="createNewFormWrapper">
   <form action='{% url 'create' %}' method='POST'>
     {% csrf_token %}
-    <div class='form-group row border rounded py-4'>
-      <div class='col-sm-4'>
+    <div class='createNewForm form-group row border rounded py-4'>
+      <div class='col-sm-5'>
         <label for='item-name'>Watcha makin'</label>
         <input id='item-name' name='item' type='text' class='form-control'
           value='{% if errors.date %} {{ item }} {% endif %}'>
       </div>
-      <div class='col-sm-4'>
+      <div class='col-sm-5'>
         <label for='slot-date'>When ya makin' it</label>
         <input
           id='slot-date'
@@ -23,8 +23,8 @@
           <div class='invalid-feedback'>{{ errors.date }}</div>
         {% endif %}
       </div>
-      <div class='col-sm-4'>
-        <button type='submit' value='OK' class='btn btn-primary'>Upload</button>
+      <div class='col-sm-2'>
+        <button type='submit' value='OK' class='btn createNewItem'>Upload</button>
       </div>
     </div>
 
