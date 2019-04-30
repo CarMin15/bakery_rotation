@@ -21,6 +21,18 @@ class BakingSlot(models.Model):
     class Meta:
         ordering = ['date']
 
+    @staticmethod
+    def computeperiodname(diff):
+        return (
+            (diff.days // 365, "year", "years"),
+            (diff.days // 30, "month", "months"),
+            (diff.days // 7, "week", "weeks"),
+            (diff.days, "day", "days"),
+            (diff.seconds // 3600, "hour", "hours"),
+            (diff.seconds // 60, "minute", "minutes"),
+            (diff.seconds, "second", "seconds"),
+        )
+
     @property
     def timesince(self, default="just now"):
         """
@@ -31,20 +43,33 @@ class BakingSlot(models.Model):
         diff = now - datetime(
             self.date.year, self.date.month, self.date.day
         )
+        print('timesince diff', diff)
 
-        periods = (
-            (diff.days // 365, "year", "years"),
-            (diff.days // 30, "month", "months"),
-            (diff.days // 7, "week", "weeks"),
-            (diff.days, "day", "days"),
-            (diff.seconds // 3600, "hour", "hours"),
-            (diff.seconds // 60, "minute", "minutes"),
-            (diff.seconds, "second", "seconds"),
-        )
-
-        for period, singular, plural in periods:
+        for period, singular, plural in self.computeperiodname(diff):
             if period:
                 return "%d %s ago" % (
+                    period, singular if period == 1 else plural
+                )
+
+        return default
+
+
+    @property
+    def timeuntil(self, default="right now"):
+        """
+        Returns string representing "time until" e.g.
+        in 3 days, in 5 hours, etc.
+        """
+        now = datetime.utcnow()
+
+        diff = datetime(
+            self.date.year, self.date.month, self.date.day
+        ) - now
+        print('timeuntil diff', diff)
+
+        for period, singular, plural in self.computeperiodname(diff):
+            if period:
+                return "in %d %s" % (
                     period, singular if period == 1 else plural
                 )
 

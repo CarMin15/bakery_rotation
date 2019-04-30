@@ -15,13 +15,11 @@ def index(request):
 
     upcoming = BakingSlot.objects.filter(
         date__gt=datetime.datetime.today()
-    ).order_by('date')[:3]
+    ).order_by('date').first()
 
     context = {
         'items': items,
-        'upcoming0': upcoming[0],
-        'upcoming1': upcoming[1],
-        'upcoming2': upcoming[2],
+        'upcoming': upcoming,
     }
 
     return render(request, 'baking_rotation/index.jinja', context)
