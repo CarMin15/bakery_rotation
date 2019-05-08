@@ -88,7 +88,7 @@ def yours(request):
         instance.save()
 
     context = {
-        'user_baking_slots': BakingSlot.objects.filter(
+        'items': BakingSlot.objects.filter(
             baker=request.user,
         ).order_by('-date')
     }

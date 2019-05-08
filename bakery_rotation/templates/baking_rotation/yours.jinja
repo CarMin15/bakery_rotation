@@ -4,32 +4,31 @@
 
 <div>
   <h2>Your baked items:</h2>
-  <ul class='item-list'>
-  {% for baking_slot in user_baking_slots %}
-    <li>
-      <form method='post' enctype='multipart/form-data'>
-        {% csrf_token %}
-        <div>
-          <span>
-             On {{ baking_slot.date }} you are making: {{ baking_slot.item }} !!
-          </span>
-          <span>Thanks {{ baking_slot.baker }}!! :)</span>
-        </div>
-        <div class="py-1">
-          <span>Choose an image to show your baked good:</span>
-          <label for="image" class="file-upload">
-            <input type="file" id="image" name="image" accept="image/*" />
-          </label>
-        </div>
-        <input name="pk" value="{{ baking_slot.pk }}" type="hidden"/>
-        <div class="py-1 text-center">
-          <button type="submit" value="OK" class="btn btn-info ml-1">Submit</button>
-        </div>
-      </form>
-    </li>
-  {% endfor %}
-  </ul>
-
+  {% include 'baking_rotation/item_grid.jinja' %}
 </div>
+
+{% for baking_slot in items %}
+  <div>
+    <form method='post' enctype='multipart/form-data'>
+      {% csrf_token %}
+      <div>
+        <span>
+           On {{ baking_slot.date }} you are making: {{ baking_slot.item }} !!
+        </span>
+        <span>Thanks {{ baking_slot.baker }}!! :)</span>
+      </div>
+      <div class="py-1">
+        <span>Choose an image to show your baked good:</span>
+        <label for="image" class="file-upload">
+          <input type="file" id="image" name="image" accept="image/*" />
+        </label>
+      </div>
+      <input name="pk" value="{{ baking_slot.pk }}" type="hidden"/>
+      <div class="py-1 text-center">
+        <button type="submit" value="OK" class="btn btn-info ml-1">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endfor %}
 
 {% endblock %}
