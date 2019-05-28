@@ -34,6 +34,13 @@ class BakingSlot(models.Model):
         )
 
     @property
+    def pretty_time(self):
+        if self.date >= datetime.utcnow().date():
+            return self.timeuntil
+        else:
+            return self.timesince
+
+    @property
     def timesince(self, default="just now"):
         """
         Returns string representing "time since" e.g.
