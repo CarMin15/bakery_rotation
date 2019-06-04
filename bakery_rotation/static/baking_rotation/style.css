@@ -108,7 +108,7 @@ ul.item-list {
   color: #f19a38;
 }
 
-.grid-item > .img-item {
+.img-item {
   width: 100%;
   height: 200px;
   border-top-right-radius: 5px;
@@ -147,4 +147,39 @@ ul.item-list {
   background-color: lightsalmon;
   display: block;
   margin: 0 auto;
+}
+
+
+/* Displaying Edit button to upload / update items images when hovering */
+
+.upload-btn-wrapper {
+  display: none;
+}
+
+.grid-item:hover .upload-btn-wrapper {
+  display: block;
+  margin: 10px;
+  position: absolute;
+}
+
+.edit-img-btn {
+  border: 2px solid #f19a38;
+  color: #818181;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.submit-img-item {
+  display: none;
 }
