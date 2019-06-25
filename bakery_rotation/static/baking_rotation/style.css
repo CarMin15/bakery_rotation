@@ -162,8 +162,22 @@ ul.item-list {
   position: absolute;
 }
 
+.grid-item:hover .submit-img-item {
+  display: inline-block;
+}
+
 .edit-img-btn {
   border: 2px solid #f19a38;
+  color: #818181;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.submit-img-item {
+  border: 2px solid  #00ace6;
   color: #818181;
   background-color: white;
   padding: 5px 10px;
@@ -178,8 +192,4 @@ ul.item-list {
   left: 0;
   top: 0;
   opacity: 0;
-}
-
-.submit-img-item {
-  display: none;
 }

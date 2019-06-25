@@ -7,20 +7,26 @@
         <a class="grid-item-box" href="/bakery_rotation/details/{{ item.id }}">
           <div class="grid-item">
             <div>
-              <div>
-                <div class="upload-btn-wrapper">
-                  <button class="edit-img-btn">Edit</button>
-                  <input type="file" name="myfile" />
+              <form method='post' enctype='multipart/form-data'>
+                {% csrf_token %}
+                <div>
+                  <!-- <button class="edit-img-btn">Edit</button> -->
+                  <div>
+                    <label for="image" class="file-upload">
+                      <input type="file" id="image" name="image" accept="image/*" />
+                    </label>
+                  </div>
+                  <input name="pk" value="{{ item.pk }}" type="hidden"/>
+                  <button type="submit" value="OK" class="btn btn-info ml-1">Update</button>
                 </div>
-                <button class="submit-img-item">Update</button>
-              </div>
+              </form>
 
               {% if item.image %}
                 <img src="{{ item.image.url }}" class="img-item">
               {% else %}
                 <img src="{% static 'baking_rotation/images/question-mark.png' %}" class="img-item">
               {% endif %}
-              
+
             </div>
             <div class="grid-item-description">
               <div class="grid-item-title">
