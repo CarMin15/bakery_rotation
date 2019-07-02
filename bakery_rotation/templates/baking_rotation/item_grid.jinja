@@ -6,7 +6,7 @@
       <div class="col-3 my-2">
         <a class="grid-item-box" href="/bakery_rotation/details/{{ item.id }}">
           <div class="grid-item">
-            <div>
+            <div class="grid-img-container">
               {% if request.path == '/yours/' %}
               <form method='post' enctype='multipart/form-data' class='form-grid-buttons'>
                 {% csrf_token %}

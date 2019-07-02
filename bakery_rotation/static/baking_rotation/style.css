@@ -196,5 +196,13 @@ ul.item-list {
 
 
 /* Index page grid */
-.index-page-grid .form-grid-buttons {
+.form-grid-buttons {
+  display: none;
+}
+
+.grid-img-container:hover .form-grid-buttons {
+  display: inline-block;
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
