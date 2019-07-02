@@ -7,6 +7,7 @@
         <a class="grid-item-box" href="/bakery_rotation/details/{{ item.id }}">
           <div class="grid-item">
             <div>
+              {% if request.path == '/yours/' %}
               <form method='post' enctype='multipart/form-data' class='form-grid-buttons'>
                 {% csrf_token %}
                 <div>
@@ -20,6 +21,7 @@
                   <button type="submit" value="OK" class="btn btn-info ml-1">Update</button>
                 </div>
               </form>
+              {% endif %}
 
               {% if item.image %}
                 <img src="{{ item.image.url }}" class="img-item">
