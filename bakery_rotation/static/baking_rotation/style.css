@@ -206,3 +206,18 @@ ul.item-list {
   padding-left: 1rem;
   padding-top: 1rem;
 }
+
+.inputfile {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  width: 0.01rem;
+  height: 0.01rem;
+  opacity: 0;
+}
+
+.inputfile, .file-upload {
+  font-size: 1rem;
+  background-color: red;
+  display: inline-block;
+}

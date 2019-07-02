@@ -13,11 +13,10 @@
                 <div>
                   <!-- <button class="edit-img-btn">Edit</button> -->
                   <div>
-                    <label for="image" class="file-upload">
-                      <input type="file" id="image" name="image" accept="image/*" />
-                    </label>
+                    <input type="file" id="image" name="image" accept="image/*" class="inputfile" />
+                    <label for="image" class="file-upload">test</label>
                   </div>
-                  <input name="pk" value="{{ item.pk }}" type="hidden"/>
+                  <input name="pk" value="{{ item.pk }}" type="hidden" />
                   <button type="submit" value="OK" class="btn btn-info ml-1">Update</button>
                 </div>
               </form>
