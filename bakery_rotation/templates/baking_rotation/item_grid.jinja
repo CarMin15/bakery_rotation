@@ -11,13 +11,13 @@
               <form method='post' enctype='multipart/form-data' class='form-grid-buttons'>
                 {% csrf_token %}
                 <div>
-                  <!-- <button class="edit-img-btn">Edit</button> -->
                   <div>
-                    <input type="file" id="image" name="image" accept="image/*" class="inputfile" />
-                    <label for="image" class="btn btn-info btn-sm">Edit</label>
+                    <input type="file" id="image-input" name="image" accept="image/*" class="inputfile" />
+                    <label for="image-input" id="image-edit-button" class="btn btn-info btn-sm">Edit</label>
+                    <span id="image-input-name"></span>
                   </div>
                   <input name="pk" value="{{ item.pk }}" type="hidden" />
-                  <button type="submit" value="OK" class="btn btn-success btn-sm">Update</button>
+                  <button id="image-update-button" type="submit" value="OK" class="btn btn-success btn-sm">Update</button>
                 </div>
               </form>
               {% endif %}
@@ -42,4 +42,20 @@
       </div>
     {% endfor %}
   </div>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript">
+    var imageInput = document.getElementById('image-input')
+    var imageEditButton = document.getElementById('image-edit-button')
+    var imageUpdateButton = document.getElementById('image-update-button')
+    var imageInputName = document.getElementById('image-input-name')
+
+    imageInput.onchange = (e) => {
+      var fileName = e.target.files[0].name
+      imageInputName.innerHTML = fileName
+      imageUpdateButton.setAttribute("style", "display:inline-block;");
+    }
+
+  </script>
 {% endblock %}

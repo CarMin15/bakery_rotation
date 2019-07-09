@@ -221,3 +221,17 @@ ul.item-list {
   background-color: red;
   display: inline-block;
 }
+
+#image-update-button {
+  display: none;
+}
+
+#image-input-name {
+  background-color: rgb(242, 242, 242, 0.5);
+  margin-left: 0.5em;
+}
+
+#image-update-button,
+#image-edit-button {
+  opacity: 0.8;
+}
