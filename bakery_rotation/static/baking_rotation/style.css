@@ -134,6 +134,10 @@ ul.item-list {
   background: linear-gradient(65deg, transparent 0% 49%, #dfdad4 50%, transparent 50%);
 }
 
+.form-control.is-valid {
+  border-color: #F16e36;
+}
+
 .createNewFormWrapper {
   background-color: #ffe6cc;
 }
