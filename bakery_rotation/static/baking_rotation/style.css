@@ -143,10 +143,11 @@ ul.item-list {
   margin: 0 auto;
 }
 
-.createNewItem {
-  background-color: lightsalmon;
+.createNewItem > button {
+  background-color: #F19636;
+  color: #FFF;
   display: block;
-  margin: 0 auto;
+  margin-top: 32px;
 }
 
 
