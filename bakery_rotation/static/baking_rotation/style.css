@@ -240,3 +240,8 @@ ul.item-list {
 #image-edit-button {
   opacity: 0.8;
 }
+
+.form-control.is-valid:focus {
+ border-color: #F16e36;;
+ box-shadow: 0 0 0 0.2rem rgba(177, 101, 23, 0.25);
+}
