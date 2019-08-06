@@ -12,8 +12,10 @@
                 {% csrf_token %}
                 <div>
                   <div>
-                    <input id="image-input" type="file" name="image" accept="image/*" class="input-file" />
-                    <label for="image-input" class="image-edit-button btn btn-info btn-sm">Edit</label>
+                    <label class="image-edit-button btn btn-info btn-sm">
+                      <input type="file" name="image" accept="image/*" class="input-file"/>
+                      Edit
+                    </label>
                     <span class="image-input-name"></span>
                   </div>
                   <input name="pk" value="{{ item.pk }}" type="hidden" />
@@ -50,6 +52,7 @@
       var inputFile = formEl.querySelector('.input-file')
       var imageInputName = formEl.querySelector('.image-input-name')
       var imageUpdateButton = formEl.querySelector('.image-update-button')
+
       inputFile.onchange = (e) => {
         var fileName = e.target.files[0].name
         imageInputName.innerHTML = fileName
