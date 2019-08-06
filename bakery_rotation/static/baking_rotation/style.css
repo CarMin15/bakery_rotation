@@ -212,7 +212,7 @@ ul.item-list {
   padding-top: 1rem;
 }
 
-.inputfile {
+.input-file {
   z-index: -1;
   overflow: hidden;
   position: absolute;
@@ -221,23 +221,23 @@ ul.item-list {
   opacity: 0;
 }
 
-.inputfile, .file-upload {
+.input-file, .file-upload {
   font-size: 1rem;
   background-color: red;
   display: inline-block;
 }
 
-#image-update-button {
+.image-update-button {
   display: none;
 }
 
-#image-input-name {
+.image-input-name {
   background-color: rgb(242, 242, 242, 0.5);
   margin-left: 0.5em;
 }
 
-#image-update-button,
-#image-edit-button {
+.image-update-button,
+.image-edit-button {
   opacity: 0.8;
 }
 
