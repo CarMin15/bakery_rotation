@@ -203,13 +203,13 @@ ul.item-list {
 /* Index page grid */
 .form-grid-buttons {
   display: none;
+  max-width: 90%;
 }
 
 .grid-img-container:hover .form-grid-buttons {
   display: inline-block;
   position: absolute;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .input-file {
@@ -229,18 +229,22 @@ ul.item-list {
 
 .image-update-button {
   display: none;
+  margin-top: 0.5rem;
 }
 
 .image-input-name {
   background-color: rgb(242, 242, 242, 0.5);
   color: #000;
-  margin-left: 0.5em;
-  padding: 0 6px;
+  overflow-wrap: break-word;
 }
 
 .image-update-button,
 .image-edit-button {
   opacity: 0.8;
+}
+
+.image-edit-button {
+  margin-right: 0.5rem;
 }
 
 .form-control.is-valid:focus {
