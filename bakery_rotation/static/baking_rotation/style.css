@@ -233,7 +233,9 @@ ul.item-list {
 
 .image-input-name {
   background-color: rgb(242, 242, 242, 0.5);
+  color: #000;
   margin-left: 0.5em;
+  padding: 0 6px;
 }
 
 .image-update-button,
