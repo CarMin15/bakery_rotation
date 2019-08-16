@@ -26,19 +26,6 @@ def index(request):
 
 
 @login_required
-def details(request, item_id):
-    item = BakingSlot.objects.get(pk=item_id)
-    item_date = item.timesince
-
-    context = {
-        'item': item,
-        'item_date': item_date
-    }
-
-    return render(request, 'baking_rotation/details.jinja', context)
-
-
-@login_required
 def upcoming(request):
     baking_list = BakingSlot.objects.filter(
         date__gt=datetime.datetime.today()

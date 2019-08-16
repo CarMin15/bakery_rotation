@@ -10,7 +10,7 @@
         {% for item in baking_list %}
           <li>
             <span>{{ date }}</span>
-            <a href="{% url 'details' item.id %}">{{ item }}</a>
+            <span>{{ item }}</span>
           </li>
         {% endfor %}
       </ul>
@@ -22,7 +22,7 @@
         {% for item in this_week_items %}
           <li>
             <span>{{ date }}</span>
-            <a href="{% url 'details' item.id %}">{{ item }}</a>
+            <span>{{ item }}</span>
           </li>
         {% endfor %}
       </ul>
@@ -34,7 +34,7 @@
         {% for item in next_week_items %}
           <li>
             <span>{{ date }}</span>
-            <a href="{% url 'details' item.id %}">{{ item }}</a>
+            <span>{{ item }}</span>
           </li>
         {% endfor %}
       </ul>
