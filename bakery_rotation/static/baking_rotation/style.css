@@ -204,6 +204,8 @@ ul.item-list {
 .form-grid-buttons {
   display: none;
   max-width: 90%;
+  position: absolute;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .grid-img-container:hover .form-grid-buttons {
@@ -230,6 +232,10 @@ ul.item-list {
 .image-update-button {
   display: none;
   margin-top: 0.5rem;
+}
+
+.has_inline_data {
+  display: inline-block;
 }
 
 .image-input-name {

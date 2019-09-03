@@ -7,9 +7,9 @@
         <div class="grid-item">
           <div class="grid-img-container">
             {% if request.path == '/yours/' %}
-            <form method='post' enctype='multipart/form-data' class='form-grid-buttons'>
+            <form method='post' enctype='multipart/form-data' class='form-grid'>
               {% csrf_token %}
-              <div>
+              <div class='form-grid-buttons'>
                 <div>
                   <label class="image-edit-button btn btn-info btn-sm">
                     <input type="file" name="image" accept="image/*" class="input-file"/>
@@ -46,15 +46,17 @@
 
 {% block javascript %}
   <script type="text/javascript">
-    Array.from(document.getElementsByClassName('form-grid-buttons')).forEach(function(formEl) {
+    Array.from(document.getElementsByClassName('form-grid')).forEach(function(formEl) {
       var inputFile = formEl.querySelector('.input-file')
       var imageInputName = formEl.querySelector('.image-input-name')
       var imageUpdateButton = formEl.querySelector('.image-update-button')
+      var formGridButtons = formEl.querySelector('.form-grid-buttons')
 
       inputFile.onchange = (e) => {
         var fileName = e.target.files[0].name
         imageInputName.innerHTML = fileName
-        imageUpdateButton.setAttribute("style", "display:inline-block;");
+        imageUpdateButton.classList.add("has_inline_data")
+        formGridButtons.classList.add("has_inline_data")
       }
     })
 
