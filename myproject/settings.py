@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bakery_rotation.apps.BakeryRotationConfig',
+    'baking_rotation.apps.BakeryRotationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = '/var/www/bakery_rotation.com/media/'
+MEDIA_ROOT = '/var/www/baking_rotation.com/media/'
 MEDIA_URL = '/media/'
-LOGIN_REDIRECT_URL = '/bakery_rotation/'
+LOGIN_REDIRECT_URL = '/baking_rotation/'
 LOGOUT_REDIRECT_URL = '/accounts/login'

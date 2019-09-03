@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from bakery_rotation.models import BakingSlot
+from baking_rotation.models import BakingSlot
 
 
 class BakingSlotForm(ModelForm):
