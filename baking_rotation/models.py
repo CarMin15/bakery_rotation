@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import pytz
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -22,15 +24,12 @@ class BakingSlot(models.Model):
         ordering = ['date']
 
     @staticmethod
-    def computeperiodname(diff):
+    def period_name(diff):
         return (
             (diff.days // 365, "year", "years"),
             (diff.days // 30, "month", "months"),
             (diff.days // 7, "week", "weeks"),
             (diff.days, "day", "days"),
-            (diff.seconds // 3600, "hour", "hours"),
-            (diff.seconds // 60, "minute", "minutes"),
-            (diff.seconds, "second", "seconds"),
         )
 
     @property
@@ -44,40 +43,47 @@ class BakingSlot(models.Model):
     def timesince(self, default="just now"):
         """
         Returns string representing "time since" e.g.
-        3 days ago, 5 hours ago etc.
+        3 days ago, yesterday, etc.
         """
-        now = datetime.utcnow()
-        diff = now - datetime(
-            self.date.year, self.date.month, self.date.day
+        now = datetime.now(pytz.timezone('America/New_York'))
+        dt = datetime(
+            self.date.year, self.date.month, self.date.day,
+            tzinfo=pytz.timezone('America/New_York')
         )
-        print('timesince diff', diff)
-
-        for period, singular, plural in self.computeperiodname(diff):
-            if period:
-                return "%d %s ago" % (
-                    period, singular if period == 1 else plural
-                )
-
-        return default
+        if dt.day == now.day:
+            return 'today'
+        elif now.day - dt.day == 1:
+            return 'yesterday'
+        else:
+            diff = now - dt
+            for period, singular, plural in self.period_name(diff):
+                if period:
+                    return "%d %s ago" % (
+                        period, singular if period == 1 else plural
+                    )
+            return 'soon'
 
 
     @property
-    def timeuntil(self, default="right now"):
+    def timeuntil(self):
         """
         Returns string representing "time until" e.g.
-        in 3 days, in 5 hours, etc.
+        in 3 days, tomorrow, etc.
         """
-        now = datetime.utcnow()
-
-        diff = datetime(
-            self.date.year, self.date.month, self.date.day
-        ) - now
-        print('timeuntil diff', diff)
-
-        for period, singular, plural in self.computeperiodname(diff):
-            if period:
-                return "in %d %s" % (
-                    period, singular if period == 1 else plural
-                )
-
-        return default
+        now = datetime.now(pytz.timezone('America/New_York'))
+        dt = datetime(
+            self.date.year, self.date.month, self.date.day,
+            tzinfo=pytz.timezone('America/New_York')
+        )
+        if dt.day == now.day:
+            return 'today'
+        elif dt.day - now.day == 1:
+            return 'tomorrow'
+        else:
+            diff = dt - now
+            for period, singular, plural in self.period_name(diff):
+                if period:
+                    return "in %d %s" % (
+                        period, singular if period == 1 else plural
+                    )
+            return 'soon'
