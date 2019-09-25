@@ -117,6 +117,15 @@ ul.item-list {
   object-position: center;
 }
 
+.img-defaultItem {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+  margin: 0.5rem auto;
+}
+
 .baker-name {
   font-size: 0.75rem;
   color: #6c757d;
