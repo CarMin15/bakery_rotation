@@ -157,6 +157,10 @@ ul.item-list {
   margin: 0 auto;
 }
 
+input[type=date]::-webkit-inner-spin-button {
+  display: none;
+}
+
 .createNewItem > button {
   background-color: #F19636;
   color: #FFF;
