@@ -271,3 +271,33 @@ input[type=date]::-webkit-inner-spin-button {
  border-color: #F16e36;;
  box-shadow: 0 0 0 0.2rem rgba(177, 101, 23, 0.25);
 }
+
+
+
+/* Stolen from https://stackoverflow.com/questions/15530850/method-to-show-native-datepicker-in-chrome */
+input[type="date"] {
+    position: relative;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+
+/* adjust increase/decrease button */
+input[type="date"]::-webkit-inner-spin-button {
+    z-index: 1;
+}
+
+ /* adjust clear button */
+ input[type="date"]::-webkit-clear-button {
+     z-index: 1;
+ }
