@@ -16,6 +16,7 @@ class BakingSlot(models.Model):
         upload_to='uploads/baking_slot_images/%Y/%m/%d/',
         null=True
     )
+    description = models.TextField(max_length=400)
 
     def __str__(self):
         return 'BakingSlot: {}, {}'.format(self.date, self.item)
