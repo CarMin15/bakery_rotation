@@ -152,9 +152,10 @@ ul.item-list {
   background-color: #ffe6cc;
 }
 
-.createNewForm {
+#createNewForm {
   align-items: center;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 input[type=date]::-webkit-inner-spin-button {
@@ -166,6 +167,10 @@ input[type=date]::-webkit-inner-spin-button {
   color: #FFF;
   display: block;
   margin-top: 32px;
+}
+
+#slot-description {
+  display: block;
 }
 
 
