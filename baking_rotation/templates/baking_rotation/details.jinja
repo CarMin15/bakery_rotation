@@ -1,0 +1,25 @@
+{% extends "baking_rotation/base.jinja" %}
+
+{% block content %}
+
+<div class="grid-item-description">
+  <div class="grid-item-title row">
+    <span><a href="details/{{ item.pk }}">{{ item.item | title }}</a></span>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        Here's the image
+      </div>
+      <span class="grid-item-date">{{ item.date }}</span>
+    </div>
+    <div class="col-6">
+      <div>
+        Here are the allergens
+      </div>
+      <div class="grid-item-date">{{ item.description }} This is the description</div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

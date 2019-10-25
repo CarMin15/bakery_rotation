@@ -84,6 +84,14 @@ def yours(request):
 
 
 @login_required
+def details(request, item_id):
+    context = {
+        'item': BakingSlot.objects.get(pk=item_id)
+    }
+
+    return render(request, 'baking_rotation/details.jinja', context)
+
+@login_required
 def create(request):
     context = {
         'errors': {}
@@ -93,6 +101,7 @@ def create(request):
         data = {
             'item': request.POST['item'],
             'date': request.POST['date'],
+            'description': request.POST['description'],
             'baker': request.user.id,
         }
         form = BakingSlotForm(data)
