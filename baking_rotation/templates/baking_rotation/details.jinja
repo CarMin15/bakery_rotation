@@ -1,15 +1,20 @@
 {% extends "baking_rotation/base.jinja" %}
+{% load static %}
 
 {% block content %}
 
-<div class="grid-item-description">
-  <div class="grid-item-title row">
-    <span><a href="details/{{ item.pk }}">{{ item.item | title }}</a></span>
+<div class="">
+  <div class="text-center py-3">
+    <h3>{{ item.item | title }}</h3>
   </div>
   <div class="row">
     <div class="col-6">
       <div>
-        Here's the image
+        {% if item.image %}
+          <img src="{{ item.image.url }}" class="img-item">
+        {% else %}
+          <img src="{% static 'baking_rotation/images/cupcake.png' %}" class="img-defaultItem">
+        {% endif %}
       </div>
       <span class="grid-item-date">{{ item.date }}</span>
     </div>
@@ -17,7 +22,7 @@
       <div>
         Here are the allergens
       </div>
-      <div class="grid-item-date">{{ item.description }} This is the description</div>
+      <div class="">{{ item.description }} This is the description</div>
     </div>
   </div>
 </div>
