@@ -1,60 +1,55 @@
+/* Base overrides */
 body {
   background-color: #faf6f0;
   font-family: 'Mukta Mahee', sans-serif;
 }
 
-.navigationBar {
-  background-color: white;
-  box-shadow: 0px 0px 3px 0px #dbd5cf;
-  border-bottom: 1px solid #dbd5cf;
+ul {
+  list-style-type: none;
 }
 
-.title {
-  color: black;
-}
-
-.title:hover {
+/* Generic */
+.link:hover {
   color: #f19a38 !important;
-}
-
-.toast_img {
-  height: 35px;
-}
-
-.platter_img {
-  height: 90px;
+  text-decoration: none;
 }
 
 .subtitle {
   color: #818181;
 }
 
-ul.item-list {
-  list-style-type: none;
+.card-generic {
+  background-color: #ffe6cc;
+  border-radius: .25rem;
+  border: 1px solid #dee2e6;
 }
 
-.file-upload {
-    background-color: transparent;
-    border: none !important;
+
+/* Nav bar */
+.navigation-bar {
+  background-color: #fff;
+  box-shadow: 0px 0px 3px 0px #dbd5cf;
+  border-bottom: 1px solid #dbd5cf;
 }
 
-.file-upload:hover {
-    background-color: transparent;
+.nav-logo {
+  height: 35px;
 }
 
-.header-menu {
-  margin-top: auto;
-  margin-bottom: auto;
+.navbar-item {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
-.menu-links > a  {
+.navbar-item > a  {
   color: #818181 !important;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
 
-.menu-button {
+.navbar-button {
   border: 1px solid #cdd8dd;
   color: #84909d;
   font-size: 0.7rem;
@@ -62,30 +57,29 @@ ul.item-list {
   padding: 8px 18px;
 }
 
-.header-menu > .item-list {
-  margin-bottom: 0px;
+
+/* Updates bar */
+.updates-icon {
+  height: 90px;
 }
 
-.header-menu > .item-list > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
+.upcoming-items > div:nth-child(2) {
+  background: linear-gradient(65deg, #FFF 0% 49%, #dfdad4 50%, transparent 50%);
 }
 
-.header-menu > .item-list > li > a:hover {
-  color: #f19a38 !important;
+.upcoming-items > .separator {
+  background: linear-gradient(65deg, transparent 0% 49%, #dfdad4 50%, transparent 50%);
 }
 
-.grid-item {
-  border-radius: 5px;
+
+/* Baked goods grid */
+.file-upload {
+    background-color: transparent;
+    border: none !important;
 }
 
-.grid-item:hover .grid-item-title {
-  color: #f19a38;
-}
-
-.grid-item-box:hover {
-  text-decoration: none;
+.file-upload:hover {
+    background-color: transparent;
 }
 
 .grid-item-description {
@@ -99,13 +93,9 @@ ul.item-list {
   font-size: 0.8rem;
 }
 
-.grid-item-title {
+.item-title {
   color: #474747;
   font-weight: 500;
-}
-
-.grid-item-title > span:hover {
-  color: #f19a38;
 }
 
 .img-item {
@@ -132,27 +122,13 @@ ul.item-list {
   color: #6c757d;
 }
 
-.upcoming-items > .upcoming-items_title {
-  background-color: #FFF;
-}
-
-.upcoming-items > div:nth-child(2) {
-  background: linear-gradient(65deg, #FFF 0% 49%, #dfdad4 50%, transparent 50%);
-}
-
-.upcoming-items > .line-separator {
-  background: linear-gradient(65deg, transparent 0% 49%, #dfdad4 50%, transparent 50%);
-}
-
 .form-control.is-valid {
   border-color: #F16e36;
 }
 
-.createNewFormWrapper {
-  background-color: #ffe6cc;
-}
 
-#createNewForm {
+/* Create page */
+#create-new-form {
   align-items: center;
   margin: 0 auto;
   padding: 0 1.5rem;

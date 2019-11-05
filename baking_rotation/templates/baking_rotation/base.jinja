@@ -8,24 +8,23 @@
 </head>
 <body>
   <header>
-    <div class="navigationBar">
+    <div class="navigation-bar">
       <div class="container">
         <div class="row py-4">
           <div class="col-4">
-            <img src="{% static 'baking_rotation/images/breadguy.png' %}" class="toast_img" />
-            <a class="title h6 ml-1" href="/">Baking Rotation</a>
+            <img src="{% static 'baking_rotation/images/breadguy.png' %}" class="nav-logo" />
+            <a class="link h6 ml-1" href="/">Baking Rotation</a>
           </div>
-          <div class="header-menu col-6">
-            <ul class="item-list">
-              <li class="menu-links"><a href="/upcoming">Upcoming</a></li>
-              <!-- <li><a href="/votes">Votes</a></li> -->
-              <li class="menu-links"><a href="/yours">Yours</a></li>
-              <li class="menu-links"><a href="/create">Create</a></li>
+          <div class="my-auto col-6">
+            <ul class="item-list mb-0">
+              <li class="navbar-item"><a class="link" href="/upcoming">Upcoming</a></li>
+              <li class="navbar-item"><a class="link" href="/yours">Yours</a></li>
+              <li class="navbar-item"><a class="link" href="/create">Create</a></li>
             </ul>
           </div>
-          <div class="header-menu col-2 text-right">
+          <div class="my-auto col-2 text-right">
             <a href="{% url 'logout' %}">
-              <button type="button" class="btn text-uppercase menu-button">Sign Out</button>
+              <button type="button" class="btn text-uppercase navbar-button">Sign Out</button>
             </a>
           </div>
         </div>

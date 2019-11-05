@@ -3,18 +3,18 @@
 
 {% block content %}
   <div class="row my-3 border upcoming-items">
-    <div class="col-5 upcoming-items_title">
-      <img src="{% static 'baking_rotation/images/platterguy.png' %}" class="platter_img" />
+    <div class="col-5 bg-white">
+      <img src="{% static 'baking_rotation/images/platterguy.png' %}" class="updates-icon" />
       <span>Hey good lookin' whatcha got cookin'</span>
     </div>
-    <div class="col-1 py-3 line-separator"></div>
+    <div class="col-1 py-3 separator"></div>
     <div class="col-5 py-3">
       <img />
       <div>{{ upcoming.item }}</div>
       <div>{{ upcoming.timeuntil }}</div>
     </div>
   </div>
-  <div class="row index-page-grid">
+  <div class="row">
     <div class="col-12">
       <h3 class="subtitle text-center">Delicious Baked Good You Already Had!</h3>
     </div>
