@@ -13,10 +13,10 @@
         {% if item.image %}
           <img src="{{ item.image.url }}" class="img-item">
         {% else %}
-          <img src="{% static 'baking_rotation/images/cupcake.png' %}" class="img-defaultItem">
+          <img src="{% static 'baking_rotation/images/cupcake.png' %}" class="img-default-item">
         {% endif %}
       </div>
-      <span class="grid-item-date">{{ item.date }}</span>
+      <span class="grid-item-date item-date">{{ item.date }}</span>
     </div>
     <div class="col-6">
       <div>

@@ -1,6 +1,6 @@
 /* Base overrides */
 body {
-  background-color: #faf6f0;
+  background-color: #FAF6F0;
   font-family: 'Mukta Mahee', sans-serif;
 }
 
@@ -10,7 +10,7 @@ ul {
 
 /* Generic */
 .link:hover {
-  color: #f19a38 !important;
+  color: #F19A38 !important;
   text-decoration: none;
 }
 
@@ -19,17 +19,47 @@ ul {
 }
 
 .card-generic {
-  background-color: #ffe6cc;
+  background-color: #FFE6CC;
   border-radius: .25rem;
-  border: 1px solid #dee2e6;
+  border: 1px solid #DEE2E6;
+}
+
+.item-description {
+  background-color: #FFF;
+  border-top: 1px solid #D0D3D8;
+  padding: 1rem 1.5rem;
+}
+
+.item-date {
+  color: #818181;
+}
+
+.item-title {
+  color: #474747;
+  font-weight: 500;
+}
+
+.img-item {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.img-default-item {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 0.5rem;
 }
 
 
 /* Nav bar */
 .navigation-bar {
   background-color: #fff;
-  box-shadow: 0px 0px 3px 0px #dbd5cf;
-  border-bottom: 1px solid #dbd5cf;
+  box-shadow: 0px 0px 3px 0px #DBD5CF;
+  border-bottom: 1px solid #DBD5CF;
 }
 
 .nav-logo {
@@ -50,8 +80,8 @@ ul {
 }
 
 .navbar-button {
-  border: 1px solid #cdd8dd;
-  color: #84909d;
+  border: 1px solid #CDD8DD;
+  color: #84909D;
   font-size: 0.7rem;
   letter-spacing: 1px;
   padding: 8px 18px;
@@ -64,66 +94,36 @@ ul {
 }
 
 .upcoming-items > div:nth-child(2) {
-  background: linear-gradient(65deg, #FFF 0% 49%, #dfdad4 50%, transparent 50%);
+  background: linear-gradient(65deg, #FFF 0% 49%, #DFDAD4 50%, transparent 50%);
 }
 
 .upcoming-items > .separator {
-  background: linear-gradient(65deg, transparent 0% 49%, #dfdad4 50%, transparent 50%);
+  background: linear-gradient(65deg, transparent 0% 49%, #DFDAD4 50%, transparent 50%);
 }
 
 
 /* Baked goods grid */
 .file-upload {
-    background-color: transparent;
-    border: none !important;
+  background-color: transparent;
+  border: none !important;
 }
 
 .file-upload:hover {
-    background-color: transparent;
-}
-
-.grid-item-description {
-  background-color: #FFF;
-  border-top: 1px solid #d0d3d8;
-  padding: 1rem 1.5rem;
+  background-color: transparent;
 }
 
 .grid-item-date {
-  color: #818181;
   font-size: 0.8rem;
 }
 
-.item-title {
-  color: #474747;
-  font-weight: 500;
-}
-
-.img-item {
+.grid-block .img-item {
   width: 100%;
   height: 200px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  object-fit: cover;
-  object-position: center;
 }
 
-.img-defaultItem {
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  display: block;
+.grid-block .img-default-item {
   max-width: 100%;
   max-height: 200px;
-  margin: 0 auto;
-  padding-bottom: 0.5rem;
-}
-
-.baker-name {
-  font-size: 0.75rem;
-  color: #6c757d;
-}
-
-.form-control.is-valid {
-  border-color: #F16e36;
 }
 
 
@@ -134,11 +134,15 @@ ul {
   padding: 0 1.5rem;
 }
 
+.form-control.is-valid {
+  border-color: #F16E36;
+}
+
 input[type=date]::-webkit-inner-spin-button {
   display: none;
 }
 
-.createNewItem > button {
+.create-new-item > button {
   background-color: #F19636;
   color: #FFF;
   display: block;
@@ -167,9 +171,9 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .edit-img-btn {
-  border: 2px solid #f19a38;
+  border: 2px solid #F19A38;
   color: #818181;
-  background-color: white;
+  background-color: #FFF;
   padding: 5px 10px;
   border-radius: 8px;
   font-size: 15px;
@@ -177,9 +181,9 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .submit-img-item {
-  border: 2px solid  #00ace6;
+  border: 2px solid  #00ACE6;
   color: #818181;
-  background-color: white;
+  background-color: #FFF;
   padding: 5px 10px;
   border-radius: 8px;
   font-size: 15px;
@@ -249,7 +253,7 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .form-control.is-valid:focus {
- border-color: #F16e36;;
+ border-color: #F16E36;;
  box-shadow: 0 0 0 0.2rem rgba(177, 101, 23, 0.25);
 }
 
