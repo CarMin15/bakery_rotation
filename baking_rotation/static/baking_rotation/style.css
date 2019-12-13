@@ -8,34 +8,50 @@ ul {
   list-style-type: none;
 }
 
+:root {
+  --white-color: #FFF;
+  --black-color: #000;
+  --black-color-rgba: rgb(242, 242, 242, 0.5);
+  --light-grey-color: #DBD5CF;
+  --mid-grey-color: #818181;
+  --dark-grey-color: #474747;
+
+  /* orange */
+  --primary-color: #F19A38;
+  --dark-primary-color: #F16E36;
+  --dark-primary-rgba: rgba(241, 110, 54, 0.25);
+  --primary-bg-color: #FFE6CC;
+
+}
+
 /* Generic */
 .link:hover {
-  color: #F19A38 !important;
+  color: var(--primary-color) !important;
   text-decoration: none;
 }
 
 .subtitle {
-  color: #818181;
+  color: var(--mid-grey-color);
 }
 
 .card-generic {
-  background-color: #FFE6CC;
+  background-color: var(--primary-bg-color);
   border-radius: .25rem;
-  border: 1px solid #DEE2E6;
+  border: 1px solid var(--dark-primary-rgba);
 }
 
 .item-description {
-  background-color: #FFF;
-  border-top: 1px solid #D0D3D8;
+  background-color: var(--white-color);
+  border-top: 1px solid var(--light-grey-color);
   padding: 1rem 1.5rem;
 }
 
 .item-date {
-  color: #818181;
+  color: var(--mid-grey-color);
 }
 
 .item-title {
-  color: #474747;
+  color: var(--dark-grey-color);
   font-weight: 500;
 }
 
@@ -57,9 +73,9 @@ ul {
 
 /* Nav bar */
 .navigation-bar {
-  background-color: #fff;
-  box-shadow: 0px 0px 3px 0px #DBD5CF;
-  border-bottom: 1px solid #DBD5CF;
+  background-color: var(--white-color);
+  box-shadow: 0px 0px 3px 0px var(--light-grey-color);
+  border-bottom: 1px solid var(--light-grey-color);
 }
 
 .nav-logo {
@@ -73,15 +89,15 @@ ul {
 }
 
 .navbar-item > a  {
-  color: #818181 !important;
+  color: var(--mid-grey-color) !important;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
 
 .navbar-button {
-  border: 1px solid #CDD8DD;
-  color: #84909D;
+  border: 1px solid var(--light-grey-color);
+  color: var(--mid-grey-color);
   font-size: 0.7rem;
   letter-spacing: 1px;
   padding: 8px 18px;
@@ -93,12 +109,17 @@ ul {
   height: 90px;
 }
 
+.upcoming-items {
+  border: 1px solid var(--light-grey-color);
+  border-radius: 2px;
+}
+
 .upcoming-items > div:nth-child(2) {
-  background: linear-gradient(65deg, #FFF 0% 49%, #DFDAD4 50%, transparent 50%);
+  background: linear-gradient(65deg, var(--white-color) 0% 49%, var(--light-grey-color) 50%, transparent 50%);
 }
 
 .upcoming-items > .separator {
-  background: linear-gradient(65deg, transparent 0% 49%, #DFDAD4 50%, transparent 50%);
+  background: linear-gradient(65deg, transparent 0% 49%, var(--light-grey-color) 50%, transparent 50%);
 }
 
 
@@ -135,7 +156,7 @@ ul {
 }
 
 .form-control.is-valid {
-  border-color: #F16E36;
+  border-color: var(--dark-primary-color);
 }
 
 input[type=date]::-webkit-inner-spin-button {
@@ -143,8 +164,8 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .create-new-item > button {
-  background-color: #F19636;
-  color: #FFF;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   display: block;
   margin-top: 32px;
 }
@@ -166,24 +187,14 @@ input[type=date]::-webkit-inner-spin-button {
   position: absolute;
 }
 
-.grid-item:hover .submit-img-item {
+.grid-item:hover {
   display: inline-block;
 }
 
 .edit-img-btn {
-  border: 2px solid #F19A38;
-  color: #818181;
-  background-color: #FFF;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.submit-img-item {
-  border: 2px solid  #00ACE6;
-  color: #818181;
-  background-color: #FFF;
+  border: 2px solid var(--primary-color);
+  color: var(--mid-grey-color);
+  background-color: var(--white-color);
   padding: 5px 10px;
   border-radius: 8px;
   font-size: 15px;
@@ -222,12 +233,6 @@ input[type=date]::-webkit-inner-spin-button {
   opacity: 0;
 }
 
-.input-file, .file-upload {
-  font-size: 1rem;
-  background-color: red;
-  display: inline-block;
-}
-
 .image-update-button {
   display: none;
   margin-top: 0.5rem;
@@ -238,8 +243,8 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .image-input-name {
-  background-color: rgb(242, 242, 242, 0.5);
-  color: #000;
+  background-color: var(--black-color-rgba);
+  color: var(--black-color);
   overflow-wrap: break-word;
 }
 
@@ -253,8 +258,8 @@ input[type=date]::-webkit-inner-spin-button {
 }
 
 .form-control.is-valid:focus {
- border-color: #F16E36;;
- box-shadow: 0 0 0 0.2rem rgba(177, 101, 23, 0.25);
+ border-color: var(--dark-primary-color);
+ box-shadow: 0 0 0 0.2rem var(--dark-primary-rgba);
 }
 
 
