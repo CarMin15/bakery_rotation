@@ -262,6 +262,12 @@ input[type=date]::-webkit-inner-spin-button {
  box-shadow: 0 0 0 0.2rem var(--dark-primary-rgba);
 }
 
+/* Details */
+.item-details .img-item,.img-default-item {
+  width: 100%;
+  max-height: 400px;
+}
+
 
 
 /* Stolen from https://stackoverflow.com/questions/15530850/method-to-show-native-datepicker-in-chrome */
