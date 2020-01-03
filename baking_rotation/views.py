@@ -1,7 +1,7 @@
 import datetime
 
 from django.shortcuts import render, redirect
-from .models import BakingSlot
+from .models import BakingSlot, Allergen
 from .forms import BakingSlotForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -86,7 +86,7 @@ def yours(request):
 @login_required
 def details(request, item_id):
     context = {
-        'item': BakingSlot.objects.get(pk=item_id)
+        'item': BakingSlot.objects.get(pk=item_id),
     }
 
     return render(request, 'baking_rotation/details.jinja', context)
