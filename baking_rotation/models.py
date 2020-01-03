@@ -6,6 +6,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
+class Allergen(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+
 class BakingSlot(models.Model):
     item = models.CharField(max_length=200)
     date = models.DateField(unique=True)
@@ -17,6 +22,7 @@ class BakingSlot(models.Model):
         null=True
     )
     description = models.TextField(max_length=400, default='')
+    allergens = models.ManyToManyField(Allergen)
 
     def __str__(self):
         return 'BakingSlot: {}, {}'.format(self.date, self.item)
