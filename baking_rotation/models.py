@@ -4,6 +4,7 @@ import pytz
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 
@@ -23,6 +24,9 @@ class BakingSlot(models.Model):
     )
     description = models.TextField(max_length=400, default='')
     allergens = models.ManyToManyField(Allergen)
+
+    def get_absolute_url(self):
+        return reverse('details', kwargs={'item_id': self.pk})
 
     def __str__(self):
         return 'BakingSlot: {}, {}'.format(self.date, self.item)

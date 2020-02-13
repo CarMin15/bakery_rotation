@@ -6,6 +6,20 @@ from .forms import BakingSlotForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
+from django.views.generic.edit import CreateView
+
+
+
+class BakedGoodCreate(CreateView):
+    model = BakingSlot
+    fields = ['item', 'date', 'description', 'allergens']
+
+
+    def form_valid(self, form):
+        form.instance.baker = self.request.user
+        print('baker - ', self.request.user)
+        return super(BakedGoodCreate, self).form_valid(form)
+
 
 @login_required
 def index(request):
@@ -90,27 +104,3 @@ def details(request, item_id):
     }
 
     return render(request, 'baking_rotation/details.jinja', context)
-
-@login_required
-def create(request):
-    context = {
-        'errors': {}
-    }
-
-    if request.method == 'POST':
-        data = {
-            'item': request.POST['item'],
-            'date': request.POST['date'],
-            'description': request.POST['description'],
-            'baker': request.user.id,
-        }
-        form = BakingSlotForm(data)
-
-        if form.is_valid():
-            form.save()
-            return redirect('yours')
-        else:
-            context['errors'] = form.errors
-            context['item'] = request.POST['item']
-
-    return render(request, 'baking_rotation/create.jinja', context)
