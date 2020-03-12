@@ -21,6 +21,7 @@
       <div class="item-details-description card-generic p-2">{{ item.description }}</div>
       <div class="item-details-allergens card-generic p-2">
         {% for allergen in item.allergens.all %}
+          <img src="{% static 'baking_rotation/icons/'|add:allergen.name|add:'.png' %}"/>
           <span>{{ allergen.name }}</span>
         {% endfor %}
       </div>
