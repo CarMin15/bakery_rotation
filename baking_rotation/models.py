@@ -11,6 +11,9 @@ from django.urls import reverse
 class Allergen(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class BakingSlot(models.Model):
     item = models.CharField(max_length=200)
