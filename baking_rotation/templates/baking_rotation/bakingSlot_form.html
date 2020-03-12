@@ -8,16 +8,18 @@
       <div class="col-sm-12">
           <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {% for field in form %}
-              <div class="form-group">
-                <span class="text-danger">{{ field.errors }}</span>
-              </div>
-              <label class="control-label col-2">{{ field.label_tag }}</label>
-              <div>
-                {{ field }}
-              </div>
-            {% endfor %}
+            <div class="row">
+              {% for field in form %}
+              <div class="form-group col-6">
+                  <span class="text-danger">{{ field.errors }}</span>
+                  <label class="control-label col-2">
+                    {{ field.label_tag }}
+                    {{ field }}
+                  </label>
+                </div>
 
+              {% endfor %}
+            </div>
             <div class="col-sm-12 create-new-item">
               <button type="submit" value="OK" class="btn">Submit</button>
             </div>

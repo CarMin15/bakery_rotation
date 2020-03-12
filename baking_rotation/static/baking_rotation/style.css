@@ -275,6 +275,8 @@ input[type=date]::-webkit-inner-spin-button {
 .item-details .item-details-description {
   height: 58%;
   margin-bottom: 2%;
+  overflow: auto;
+  resize: vertical;
 }
 
 
